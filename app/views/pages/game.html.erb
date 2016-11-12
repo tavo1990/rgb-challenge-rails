@@ -25,3 +25,61 @@
     <a href="#">Volver a jugar</a>
   </div>
 </div>
+
+<script>
+  // Generates a number between 0 and 2
+  var correct;
+  var score = 0;
+
+  // Run the first game
+  game();
+
+  // Binding click on click
+  $('.option').on('click', guess);
+  $('.close').on('click', function() {
+    $('.result').hide();
+    $('.option').removeClass('scale');
+
+    game();
+  });
+
+  // Initialize a new game session
+  function game() {
+    correct = Math.floor(Math.random() * 2);
+
+    $('.option').each(function(index) {
+      var color = generateColor();
+      $(this).css('background-color', color);
+
+      // Change answer copy
+      if ( index == correct) {
+        $('.question').text(color);
+      }
+    });
+  }
+
+  // Verifies a new attempt
+  function guess() {
+    $(this).addClass('scale');
+    var index = $('.option').index(this);
+
+    if ( index == correct ) {
+      score++;
+      $('.result.won').show();
+    } else {
+      score = 0;
+      $('.result.lost').show();
+    }
+    $('.score span').text(score);
+  }
+
+  // Returns a color like this rgb(135, 45, 67)
+  function generateColor() {
+    return 'rgb(' + random() + ', ' + random() + ', ' + random() + ')'
+  }
+
+  // Returns a number between 0 and 255
+  function random() {
+    return Math.floor(Math.random() * 255);
+  }
+</script>
