@@ -67,7 +67,10 @@ body {
 
 #registerScore {
   cursor: pointer;
-  background-color: transparent !important;
+}
+
+input[type=submit] {
+  background-color: transparent;
 }
 
 .result .close {

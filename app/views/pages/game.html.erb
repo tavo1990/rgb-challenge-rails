@@ -24,7 +24,6 @@
   <h1>Score: <span id="finalScore"></span></h1>
 
   <div class="score-form">
-
     <%= form_for(@competitor) do |competitor| %>
       <%= hidden_field_tag 'competitor[score]', 0, id: 'hiddenScoreInpunt' %>
 
@@ -36,7 +35,6 @@
         <%= competitor.submit 'Registrar Puntaje', id: 'registerScore' %>
       </div>
     <% end %>
-
   </div>
 
   <div class="close">
