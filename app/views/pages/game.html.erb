@@ -21,8 +21,12 @@
 
 <div class="result lost">
   <span>NOOOOOOOOO :( :(</span>
+  <h1>Score: <span id="finalScore"></span></h1>
   <div class="close">
     <a href="#">Volver a jugar</a>
+  </div>
+  <div class="close">
+    <a href="#">Registra tu puntaje</a>
   </div>
 </div>
 
@@ -68,8 +72,9 @@
       score++;
       $('.result.won').show();
     } else {
-      score = 0;
       $('.result.lost').show();
+      $('#finalScore').text(score);
+      score = 0;
     }
     $('#scoreValue').text(score);
   }
