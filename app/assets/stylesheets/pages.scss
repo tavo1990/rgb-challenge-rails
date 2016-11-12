@@ -57,11 +57,17 @@ body {
 
 .result .close a, #registerScore {
   color: white;
+  font-family: 'Inconsolata';
   font-size: 21px;
   text-decoration: none;
   border: 5px solid white;
   padding: 10px 15px;
   border-radius: 5px;
+}
+
+#registerScore {
+  cursor: pointer;
+  background-color: transparent !important;
 }
 
 .result .close {
