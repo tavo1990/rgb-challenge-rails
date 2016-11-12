@@ -1,5 +1,5 @@
 <div class="score">
-  SCORE: <span>0</span>
+  SCORE: <span id="scoreValue">0</span>
 </div>
 
 <div class="question-container">
@@ -37,6 +37,7 @@
   // Binding click on click
   $('.option').on('click', guess);
   $('.close').on('click', function() {
+    event.preventDefault();
     $('.result').hide();
     $('.option').removeClass('scale');
 
@@ -45,7 +46,7 @@
 
   // Initialize a new game session
   function game() {
-    correct = Math.floor(Math.random() * 2);
+    correct = Math.floor(Math.random() * 3);
 
     $('.option').each(function(index) {
       var color = generateColor();
@@ -70,7 +71,7 @@
       score = 0;
       $('.result.lost').show();
     }
-    $('.score span').text(score);
+    $('#scoreValue').text(score);
   }
 
   // Returns a color like this rgb(135, 45, 67)
