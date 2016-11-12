@@ -24,10 +24,19 @@
   <h1>Score: <span id="finalScore"></span></h1>
 
   <div class="score-form">
-    <form action="">
-      <input type="email" name="email" class="email-input" placeholder="Correo electrónico">
-    </form>
-    <a href="#" id="registerScore">Registrar puntaje</a>
+
+    <%= form_for(@competitor) do |competitor| %>
+      <%= hidden_field_tag 'competitor[score]', 0, id: 'hiddenScoreInpunt' %>
+
+      <div>
+        <%= competitor.email_field :email, placeholder: 'Correo electrónico', class: 'email-input' %>
+      </div>
+
+      <div>
+        <%= competitor.submit 'Registrar Puntaje', id: 'registerScore' %>
+      </div>
+    <% end %>
+
   </div>
 
   <div class="close">
