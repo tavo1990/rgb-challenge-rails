@@ -25,7 +25,7 @@
 
   <div class="score-form">
     <%= form_for(@competitor) do |competitor| %>
-      <%= hidden_field_tag 'competitor[score]', 0, id: 'hiddenScoreInpunt' %>
+      <%= hidden_field_tag 'competitor[score]', 0, id: 'hiddenScoreInput' %>
 
       <div>
         <%= competitor.email_field :email, placeholder: 'Correo electrónico', class: 'email-input' %>
@@ -87,6 +87,7 @@
     } else {
       $('.result.lost').show();
       $('#finalScore').text(score);
+      $('#hiddenScoreInput').val(score);
       score = 0;
     }
     $('#scoreValue').text(score);
